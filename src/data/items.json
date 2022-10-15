@@ -1,0 +1,26 @@
+[
+  {
+    "id": 1,
+    "name": "headphone",
+    "price": 550,
+    "imgUrl": "/src/assets/imgs/headphone.png"
+  },
+  {
+    "id": 2,
+    "name": "Phone",
+    "price": 1000,
+    "imgUrl": "/src/assets/imgs/phone.jpg"
+  },
+  {
+    "id": 3,
+    "name": "Laptop",
+    "price": 1200,
+    "imgUrl": "/src/assets/imgs/laptop.jpg"
+  },
+  {
+    "id": 4,
+    "name": "Watch",
+    "price": 400,
+    "imgUrl": "/src/assets/imgs/watch.jpg"
+  }
+]
