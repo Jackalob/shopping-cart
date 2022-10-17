@@ -1,4 +1,5 @@
 import { createContext, useContext, useState } from "react";
+import ShoppingCart from "../components/ShoppingCart";
 
 type Props = {
   children: React.ReactNode;
@@ -14,12 +15,24 @@ type ShoppingCartContext = {
   increaseItemQuantity: (id: number) => void;
   decreaseItemQuantity: (id: number) => void;
   removeItemFromCart: (id: number) => void;
+  cartItems: CarItems[];
+  cartQuantity: number;
+  openCart: () => void;
+  closeCart: () => void;
 };
 
 const ShoppingCartContext = createContext({} as ShoppingCartContext);
 
 export function ShoppingCartProvider({ children }: Props) {
   const [cartItems, setCartItems] = useState<CarItems[]>([]);
+  const [isOpen, setIsOpen] = useState(false);
+
+  const cartQuantity = cartItems.reduce(
+    (quantity, item) => quantity + item.quantity,
+    0
+  );
+  const openCart = () => setIsOpen(true);
+  const closeCart = () => setIsOpen(false);
 
   const getItemQuantity = (id: number) => {
     return cartItems.find((item) => item.id === id)?.quantity ?? 0;
@@ -61,9 +74,14 @@ export function ShoppingCartProvider({ children }: Props) {
         increaseItemQuantity,
         decreaseItemQuantity,
         removeItemFromCart,
+        cartItems,
+        cartQuantity,
+        openCart,
+        closeCart,
       }}
     >
       {children}
+      <ShoppingCart isOpen={isOpen} />
     </ShoppingCartContext.Provider>
   );
 }

@@ -1,8 +1,10 @@
 import { Container, Navbar as NavbarBS, Nav, Button } from "react-bootstrap";
 import { NavLink } from "react-router-dom";
 import { ReactComponent as IonCart } from "../assets/icons/cart-shopping.svg";
+import { useShoppingCart } from "../context/ShoppingCartContext";
 
 const Navbar = () => {
+  const { cartQuantity, openCart } = useShoppingCart();
   return (
     <NavbarBS sticky="top" className="bg-white shadow-sm mb-3">
       <Container>
@@ -17,26 +19,30 @@ const Navbar = () => {
             About
           </Nav.Link>
         </Nav>
+
         <Button
-          style={{ width: "3rem", height: "3rem", position: "relative" }}
+          style={{ width: "2.5rem", height: "2.5rem", position: "relative" }}
           variant="outline-primary"
           className="rounded-circle"
+          onClick={openCart}
         >
           <IonCart style={{ fill: "currentColor" }} />
-          <div
-            className="rounded-circle bg-danger d-flex justify-content-center align-items-center"
-            style={{
-              color: "white",
-              width: "1.5rem",
-              height: "1.5rem",
-              position: "absolute",
-              bottom: 0,
-              right: 0,
-              transform: "translate(25%, 25%)",
-            }}
-          >
-            3
-          </div>
+          {cartQuantity > 0 && (
+            <div
+              className="rounded-circle bg-danger d-flex justify-content-center align-items-center"
+              style={{
+                color: "white",
+                width: "1.25rem",
+                height: "1.25rem",
+                position: "absolute",
+                bottom: 0,
+                right: 0,
+                transform: "translate(25%, 25%)",
+              }}
+            >
+              {cartQuantity}
+            </div>
+          )}
         </Button>
       </Container>
     </NavbarBS>
