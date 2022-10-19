@@ -21,7 +21,7 @@ const Navbar = () => {
         </Nav>
 
         <Button
-          style={{ width: "2.5rem", height: "2.5rem", position: "relative" }}
+          style={{ width: "3rem", height: "3rem", position: "relative" }}
           variant="outline-primary"
           className="rounded-circle"
           onClick={openCart}
@@ -35,6 +35,7 @@ const Navbar = () => {
                 width: "1.25rem",
                 height: "1.25rem",
                 position: "absolute",
+                fontSize: '.9rem',
                 bottom: 0,
                 right: 0,
                 transform: "translate(25%, 25%)",
