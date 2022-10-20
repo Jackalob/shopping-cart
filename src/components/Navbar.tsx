@@ -9,7 +9,7 @@ const Navbar = () => {
     <NavbarBS sticky="top" className="bg-white shadow-sm mb-3">
       <Container>
         <Nav className="me-auto">
-          <Nav.Link to="/" as={NavLink}>
+          <Nav.Link to="/" as={NavLink} end>
             Home
           </Nav.Link>
           <Nav.Link to="/store" as={NavLink}>
@@ -35,7 +35,7 @@ const Navbar = () => {
                 width: "1.25rem",
                 height: "1.25rem",
                 position: "absolute",
-                fontSize: '.9rem',
+                fontSize: ".9rem",
                 bottom: 0,
                 right: 0,
                 transform: "translate(25%, 25%)",
